@@ -1,0 +1,87 @@
+{
+  "name": "Federico Marcis",
+  "role": "STAFF CAPTAIN",
+  "tagline": "Navigation. Leadership. Operational excellence.",
+  "intro": "Deck officer and Unlimited Master CoC holder, currently serving as Staff Captain with experience across cruise, expedition and Ro-Ro operations. I combine a practical, hands-on approach to shipboard operations with strong organizational skills and a particular interest in process improvement, operational efficiency and people development.",
+  "location": "Sardinia, Italy",
+  "email": "federico.marcis@gmail.com",
+  "linkedin": "",
+  "heroImage": "/uploads/portrait.png",
+  "highlights": [
+    {
+      "number": "10+",
+      "label": "Years at sea"
+    },
+    {
+      "number": "Master",
+      "label": "Unlimited CoC"
+    },
+    {
+      "number": "3",
+      "label": "Shipping sectors"
+    }
+  ],
+  "experience": [
+    {
+      "dates": "Aug 2026 — Present",
+      "title": "Staff Captain",
+      "company": "Silversea Cruises",
+      "ships": "Silver Wind / Silver Dawn",
+      "description": "Deputy to the Master and Head of Deck Department, overseeing deck operations, maintenance planning and execution, crew management, and statutory safety, environmental and security compliance."
+    },
+    {
+      "dates": "Jun 2025 — Dec 2026",
+      "title": "Fleet-wide Operations Projects",
+      "company": "Silversea Marine Operations Office · Collaboration",
+      "ships": "",
+      "description": "Collaborated on fleet-wide projects including passage planning standardization, Polar Water Operational Manual (PWOM) updates, crew rotation scheduling and performance tracking systems."
+    },
+    {
+      "dates": "Sep 2023 — Aug 2026",
+      "title": "First Officer Safety",
+      "company": "Silversea Cruises",
+      "ships": "Silver Explorer / Silver Wind / Silver Muse",
+      "description": "Responsible for crew training, safety equipment inspections and LSA / FFE testing and maintenance, supporting emergency preparedness and operational safety."
+    },
+    {
+      "dates": "Oct 2021 — Sep 2023",
+      "title": "Third, Second & First Officer Navigator",
+      "company": "Silversea Cruises",
+      "ships": "Silver Explorer / Silver Muse",
+      "description": "Officer of the Watch with responsibility for passage planning, voyage scheduling and navigational bridge equipment."
+    },
+    {
+      "dates": "May 2016 — Apr 2021",
+      "title": "Deck Cadet → Second Officer",
+      "company": "Grimaldi Lines",
+      "ships": "Ro-Ro Pax / Ro-Ro vessels",
+      "description": "Progressive deck officer experience in commercial shipping and passenger vessel operations."
+    }
+  ],
+  "expertise": [
+    "Shipboard Operations",
+    "Safety & Regulatory Compliance",
+    "Polar Operations",
+    "Passage Planning",
+    "Crew Leadership",
+    "Fleet Process Standardization",
+    "Maintenance Coordination",
+    "VBA & Process Automation"
+  ],
+  "education": [
+    {
+      "title": "Maritime Academy “Mo.So.S.”",
+      "meta": "Cagliari, Italy · 2015–2018",
+      "detail": "Final grade: 100/100 cum laude"
+    },
+    {
+      "title": "Technical Nautical School “Buccari”",
+      "meta": "Cagliari, Italy · 2006–2011",
+      "detail": "Final grade: 100/100"
+    }
+  ],
+  "certifications": "IMO Unlimited Master CoC · STCW · GMDSS · ECDIS (SAM Platinum, SAM 1100, Furuno FMD/FEA) · BRM · Advanced Firefighting · Medical Care · Crowd & Crisis Management",
+  "languages": "Italian — Native  ·  English — Fluent  ·  Spanish — Basic",
+  "extras": "Professional skipper · Six years as a certified sailing instructor / coach · US C1/D visa holder",
+  "gallery": []
+}

@@ -1,0 +1,69 @@
+# Replace federicomarcis-prog with your actual GitHub username after uploading.
+backend:
+  name: github
+  repo: federicomarcis-prog/federico-marcis-website
+  branch: main
+  auth_methods: [token]
+
+media_folder: /public/uploads
+public_folder: /uploads
+media_libraries:
+  default:
+    config:
+      max_file_size: 5000000
+      slugify_filename: true
+
+collections:
+  - name: website
+    label: Website content
+    files:
+      - name: portfolio
+        label: Edit portfolio
+        file: public/content.json
+        format: json
+        fields:
+          - {name: name, label: Full name, widget: string}
+          - {name: role, label: Professional title, widget: string}
+          - {name: tagline, label: Tagline, widget: string}
+          - {name: intro, label: About me, widget: text}
+          - {name: location, label: Location, widget: string}
+          - {name: email, label: Public email, widget: string}
+          - {name: linkedin, label: LinkedIn URL, widget: string, required: false}
+          - {name: heroImage, label: Profile photograph, widget: image}
+          - name: highlights
+            label: Quick facts
+            widget: list
+            fields:
+              - {name: number, label: Figure, widget: string}
+              - {name: label, label: Caption, widget: string}
+          - name: experience
+            label: Career timeline
+            widget: list
+            summary: '{{fields.title}} — {{fields.dates}}'
+            fields:
+              - {name: dates, label: Dates, widget: string}
+              - {name: title, label: Position, widget: string}
+              - {name: company, label: Company, widget: string}
+              - {name: ships, label: Ships / fleet, widget: string, required: false}
+              - {name: description, label: Description, widget: text}
+          - name: expertise
+            label: Core competencies
+            widget: list
+            field: {name: skill, label: Skill, widget: string}
+          - name: education
+            label: Education
+            widget: list
+            fields:
+              - {name: title, label: School, widget: string}
+              - {name: meta, label: Location and dates, widget: string}
+              - {name: detail, label: Qualification, widget: string}
+          - {name: certifications, label: Certifications, widget: text}
+          - {name: languages, label: Languages, widget: text}
+          - {name: extras, label: Other qualifications, widget: text}
+          - name: gallery
+            label: Photo gallery
+            widget: list
+            summary: '{{fields.caption}}'
+            fields:
+              - {name: url, label: Photograph, widget: image}
+              - {name: caption, label: Caption, widget: string, required: false}
