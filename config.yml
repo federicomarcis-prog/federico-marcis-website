@@ -1,69 +1,107 @@
-# Replace federicomarcis-prog with your actual GitHub username after uploading.
+# CMS paths must be relative to the GitHub repository root.
+# This repository has the website inside the named folder below.
 backend:
   name: github
   repo: federicomarcis-prog/federico-marcis-website
   branch: main
   auth_methods: [token]
 
-media_folder: /public/uploads
+media_folder: Federico_Marcis_Cloudflare_Gratis_Senza_Python/public/uploads
 public_folder: /uploads
-media_libraries:
-  default:
-    config:
-      max_file_size: 5000000
-      slugify_filename: true
 
 collections:
-  - name: website
-    label: Website content
+  - name: identity
+    label: 01 - Business card
     files:
-      - name: portfolio
-        label: Edit portfolio
-        file: public/content.json
+      - name: profile
+        label: Profile, image and contact
+        file: Federico_Marcis_Cloudflare_Gratis_Senza_Python/public/data/profile.json
         format: json
         fields:
           - {name: name, label: Full name, widget: string}
-          - {name: role, label: Professional title, widget: string}
+          - {name: role, label: Job title, widget: string}
           - {name: tagline, label: Tagline, widget: string}
           - {name: intro, label: About me, widget: text}
           - {name: location, label: Location, widget: string}
           - {name: email, label: Public email, widget: string}
           - {name: linkedin, label: LinkedIn URL, widget: string, required: false}
-          - {name: heroImage, label: Profile photograph, widget: image}
+          - {name: heroImage, label: Profile photo, widget: image}
           - name: highlights
-            label: Quick facts
+            label: Highlights
             widget: list
             fields:
-              - {name: number, label: Figure, widget: string}
+              - {name: number, label: Value, widget: string}
               - {name: label, label: Caption, widget: string}
-          - name: experience
-            label: Career timeline
-            widget: list
-            summary: '{{fields.title}} — {{fields.dates}}'
-            fields:
-              - {name: dates, label: Dates, widget: string}
-              - {name: title, label: Position, widget: string}
-              - {name: company, label: Company, widget: string}
-              - {name: ships, label: Ships / fleet, widget: string, required: false}
-              - {name: description, label: Description, widget: text}
-          - name: expertise
-            label: Core competencies
-            widget: list
-            field: {name: skill, label: Skill, widget: string}
-          - name: education
-            label: Education
-            widget: list
-            fields:
-              - {name: title, label: School, widget: string}
-              - {name: meta, label: Location and dates, widget: string}
-              - {name: detail, label: Qualification, widget: string}
+  - name: experience
+    label: 02 - Career (edit one job)
+    label_singular: Job
+    folder: Federico_Marcis_Cloudflare_Gratis_Senza_Python/public/data/experience
+    create: true
+    delete: true
+    extension: json
+    format: json
+    identifier_field: title
+    slug: '{{slug}}'
+    summary: '{{title}} — {{dates}}'
+    fields:
+      - {name: id, label: Identifier, widget: hidden, required: false}
+      - {name: order, label: Display order (smaller first), widget: number, value_type: int, default: 100}
+      - {name: dates, label: Dates, widget: string}
+      - {name: title, label: Position, widget: string}
+      - {name: company, label: Company, widget: string}
+      - {name: ships, label: Ships / fleet, widget: string, required: false}
+      - {name: description, label: Description, widget: text}
+  - name: education
+    label: 03 - Education (edit one school)
+    label_singular: Qualification
+    folder: Federico_Marcis_Cloudflare_Gratis_Senza_Python/public/data/education
+    create: true
+    extension: json
+    format: json
+    identifier_field: title
+    slug: '{{slug}}'
+    summary: '{{title}}'
+    fields:
+      - {name: order, label: Display order, widget: number, value_type: int, default: 100}
+      - {name: title, label: School or Academy, widget: string}
+      - {name: meta, label: Location / dates, widget: string}
+      - {name: detail, label: Qualification, widget: string}
+  - name: expertise
+    label: 04 - Skills (edit one skill)
+    label_singular: Skill
+    folder: Federico_Marcis_Cloudflare_Gratis_Senza_Python/public/data/expertise
+    create: true
+    extension: json
+    format: json
+    identifier_field: skill
+    slug: '{{slug}}'
+    summary: '{{skill}}'
+    fields:
+      - {name: order, label: Display order, widget: number, value_type: int, default: 100}
+      - {name: skill, label: Skill, widget: string}
+  - name: qualifications
+    label: 05 - Other qualifications
+    files:
+      - name: qualifications
+        label: Certificates and languages
+        file: Federico_Marcis_Cloudflare_Gratis_Senza_Python/public/data/qualifications.json
+        format: json
+        fields:
           - {name: certifications, label: Certifications, widget: text}
           - {name: languages, label: Languages, widget: text}
-          - {name: extras, label: Other qualifications, widget: text}
-          - name: gallery
-            label: Photo gallery
-            widget: list
-            summary: '{{fields.caption}}'
-            fields:
-              - {name: url, label: Photograph, widget: image}
-              - {name: caption, label: Caption, widget: string, required: false}
+          - {name: extras, label: Additional experience, widget: text}
+  - name: gallery
+    label: 06 - Photos (edit one photo)
+    label_singular: Photo
+    folder: Federico_Marcis_Cloudflare_Gratis_Senza_Python/public/data/gallery
+    create: true
+    extension: json
+    format: json
+    identifier_field: title
+    slug: '{{slug}}'
+    summary: '{{title}}'
+    fields:
+      - {name: order, label: Display order, widget: number, value_type: int, default: 100}
+      - {name: title, label: Internal photo title, widget: string}
+      - {name: url, label: Photograph, widget: image}
+      - {name: caption, label: Public caption, widget: string, required: false}

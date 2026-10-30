@@ -1,23 +1,25 @@
-# Federico Marcis — Digital Business Card
+# Federico Marcis — editor a modifiche singole
 
-Minimal, mobile-friendly digital business card. Static HTML, CSS and JS, no Python, no hosting fee on Cloudflare Pages free tier.
+Questa versione consente di modificare **una singola esperienza, competenza, formazione o fotografia** senza riscrivere l'intero CV. Il pannello `/admin/` utilizza Sveltia CMS + GitHub e carica le foto nel repository. Nessun Python o database a pagamento.
 
-## Features
-- Compact professional business-card landing screen, contact email, downloadable vCard
-- Career history, qualifications, and photo gallery in modal panels
-- All existing content stored in `public/content.json`
-- Sveltia CMS at `/admin/` with GitHub token login for editing text and uploading photos
-- No token or private access information is stored in this repository
+## Pubblicazione sul repository esistente
 
-## IMPORTANT: update existing GitHub repository
-Your repository currently has a folder named `Federico_Marcis_Cloudflare_Gratis_Senza_Python` that Cloudflare uses as its root directory. **Replace the CONTENTS inside that folder** with the CONTENTS of this archive, preserving `public/` inside it. Do not nest this archive as another directory. Alternatively, change Cloudflare Pages root directory to match where you actually uploaded the files. Keep Pages build output `public`, framework `None`, build command empty.
+La struttura **all'interno** di `Federico_Marcis_Cloudflare_Gratis_Senza_Python/` deve essere quella di questo ZIP: `public/`, `build.mjs`, `.gitignore`, README.
 
-GitHub web uploading may not overwrite all existing files automatically. For reliable replacement, use GitHub Desktop or delete the old app files before uploading these, retaining the correct root folder.
+**Prima di sostituire i file:** se hai già modificato il sito online, salva una copia del tuo `public/content.json` e della cartella `public/uploads` attuali. Questa distribuzione contiene i dati originali del biglietto da visita, non le modifiche che hai già fatto su GitHub. Per importare i dati esistenti usa il comando descritto più avanti, oppure aggiornali da `/admin/` dopo la pubblicazione. Non cancellare foto precedentemente caricate.
 
-Your CMS changes are stored in `public/content.json` and photographs in `public/uploads/`. **Before overwriting your existing project, copy your current live `content.json` and uploads into this new project** if you've already edited them through the admin panel. The provided sample content is a starting point.
+1. Estrai lo ZIP e carica il contenuto nella cartella del repository chiamata `Federico_Marcis_Cloudflare_Gratis_Senza_Python`. **Non caricare lo ZIP come singolo file e non creare una cartella annidata aggiuntiva.**
+2. I nuovi file di contenuto si trovano in `public/data/...`. La vecchia `public/content.json` non va mantenuta nel repository: è prodotta automaticamente dalla build.
+3. Cloudflare Pages → progetto → **Settings → Builds & deployments** (o Build configuration): usa **Build command `node build.mjs`**, **Root directory `Federico_Marcis_Cloudflare_Gratis_Senza_Python`**, **Output directory `public`**; framework None. Salva e fai un nuovo deployment.
+4. Apri `/admin/` usando un token GitHub personale **mai condiviso**, con permesso Contents read/write per il repository.
+5. In Admin, apri `02 - Career` per modificare una sola esperienza oppure `06 - Photos` per gestire una foto. Salva: GitHub effettua commit; Cloudflare ricompila e pubblica.
 
-## Edit
-Open `https://YOUR-PAGES-DOMAIN.pages.dev/admin/`. Login with a new, private GitHub token. Do not reuse a token ever shared in chat. Configure restricted repository Contents read/write permission. Edits commit to GitHub, causing automatic redeployment.
+**Le modifiche sono granulari nei file:** i singoli record sono separati in file JSON indipendenti. La pubblicazione ricostruisce una copia combinata (`content.json`) solo come output; la modifica di un lavoro non sovrascrive i file degli altri lavori.
 
-## Customization
-Visual styling lives in `public/style.css`. The admin allows full control over text, photos, experience and qualifications, but visual layout/code changes still require editing HTML/CSS/JS in GitHub. The business-card template does not claim to be a drag-and-drop site builder.
+## Nota su migrazione dati già personalizzati
+
+Se il vecchio `public/content.json` contiene dati personali modificati, **non sovrascriverlo prima di effettuare un backup**. Il nuovo progetto contiene dati di esempio tratti dalla versione precedente. Per migrare integralmente modifiche esistenti, occorre convertire il vecchio JSON nei singoli record sotto `public/data/` (oppure copiarli manualmente tramite il CMS). Questa conversione non è automatica nel pannello.
+
+## Limiti
+
+L'editor permette di aggiungere, eliminare e modificare elementi separati, ma il layout rimane un template: modifiche HTML/CSS richiedono aggiornamenti ai file. Ogni salvataggio causa un nuovo deployment; la pubblicazione non è istantanea. Evita di inserire token nei file del sito o in chat.
